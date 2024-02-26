@@ -1,23 +1,42 @@
+// Karsten Jeppesen, UCN
+// There are 3 ways to start threads.
+// This demo will show two of the options
+// - by extending the Thread class and overriding its run() method
+// - by implementing the Runnable interface
+//
 
 public class ThreadsDemo {
 
 	public static void main(String[] args) {
-		ThreadsExtend myThreadA = new ThreadsExtend("A");
-		ThreadsExtend myThreadB = new ThreadsExtend("B");
-		ThreadsExtend myThreadC = new ThreadsExtend("C");
-		Runnable myRunnableD = new ThreadsInterface("D");
-		Runnable myRunnableE = new ThreadsInterface("E");
-		Runnable myRunnableF = new Level1Interface("F");
+		System.out.println("Main");
+		
+		// Extending the Thread class will oc result in a thread
+		ExtendingThreads myThreadA = new ExtendingThreads("A");
+		ExtendingThreads myThreadB = new ExtendingThreads("B");
+		ExtendingThreads myThreadC = new ExtendingThreads("C");
+		
+		// implementing the runnable interface will require an additional call to threads
+		Runnable myRunnableD = new ImplementingRunnable("D");
+		Runnable myRunnableE = new ImplementingRunnable("E");
+		Runnable myRunnableF = new ImplementingRunnable("F");
+		Runnable myRunnableL = new ThreadStartingThread("L");
+		
+		// Here we inject the runnable into the thread class
+		Thread myThreadD = new Thread( myRunnableD );
+		Thread myThreadE = new Thread( myRunnableE );
+		Thread myThreadF = new Thread( myRunnableF );
+		Thread myThreadL = new Thread( myRunnableL );
+		
+		// Starting all threads. Note that sequence can not be guaranteed.
 		myThreadA.start();
 		myThreadB.start();
 		myThreadC.start();
-		Thread  myThreadD = new Thread( myRunnableD );
 		myThreadD.start();
-		Thread myThreadE = new Thread( myRunnableE );
 		myThreadE.start();
-		Thread myThreadF = new Thread( myRunnableF );
 		myThreadF.start();
+		myThreadL.start();
 		
+		// Waiting for all threads to complete is considered best practice
 		try {
 			myThreadA.join();
 			myThreadB.join();
@@ -25,10 +44,12 @@ public class ThreadsDemo {
 			myThreadD.join();
 			myThreadE.join();
 			myThreadF.join();
+			myThreadL.join();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("Main Done...");
+		
+		System.out.println("Main... Done");
 	}
+
 }
