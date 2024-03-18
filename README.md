@@ -10,8 +10,17 @@ Technology 2. semester code<br>
   <li>Exercise 1: ProcessDemo, Java app demonstrating processcreation</li>
   <li>Exercise 2: ThreadsDemo, Java app demonstrating threadscreation</li>
 </ul>
-<h2>Session 4</h2>
-<h2>Session 5</h2>
+<h3>04 - Concurrency - Synchronization and Deadlock</h3>
+<ul>
+  <li>SemaphoreDemo</li>
+</ul>
+<h3>05 - Concurrency - High-Level Concurrency Primitives</h3>
+<ul>
+  <li>MonitorCase1</li>
+  <li>MonitorCase2</li>
+  <li>CircularBuffer</li>
+  <li>ConditionDemo</li>
+</ul>
 <h2>Session 6</h2>
 <h2>Session 7</h2>
 <h2>Session 8</h2>
