@@ -22,6 +22,9 @@ Technology 2. semester code<br>
   <li>ConditionDemo</li>
 </ul>
 <h2>Session 6</h2>
+<ul>
+  <li>AnomalyBank (SQL)</li>
+</ul>
 <h2>Session 7</h2>
 <h2>Session 8</h2>
 <h2>Session 9</h2>
